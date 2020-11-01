@@ -27,3 +27,17 @@ while j > 1:
     sum += int(s * j)
     j -= 1
 print(f"Sum: {sum}")
+
+# 4
+# Пользователь вводит целое положительное число. Найдите самую большую цифру в числе. Для решения используйте цикл while и арифметические операции.
+i = int(input("Enter number (int): "))
+max = i % 10
+i //= 10
+while i > 0:
+    check = i % 10
+    i //= 10
+    if check > max:
+        max = check
+    if max == 9:
+        break
+print(f"Max digit is {max}")
