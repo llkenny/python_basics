@@ -52,9 +52,8 @@ else:
     if proceeds == outgo:
         print("Result: zero")
     else:
-        negative_msg = "Result: loss"
         if outgo > proceeds:
-            print(negative_msg)
+            print("Result: loss")
         else:
             profit = proceeds - outgo
             print(f"Result: profit = {profit}")
