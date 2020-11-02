@@ -65,9 +65,9 @@ else:
         
 # 6
 # Спортсмен занимается ежедневными пробежками. В первый день его результат составил a километров. Каждый день спортсмен увеличивал результат на 10 % относительно предыдущего. Требуется определить номер дня, на который общий результат спортсмена составить не менее b километров. Программа должна принимать значения параметров a и b и выводить одно натуральное число — номер дня.
-a = float(input("Enter first result (float): "))
-b = float(input("Enter goal (float): "))
-if a == 0:
+start = a = float(input("Enter first result (positive float): "))
+b = float(input("Enter goal (non-negative float): "))
+if a <= 0 or b < 0:
     print(f"Running is not for you")
 else:
     days = 1
@@ -75,3 +75,12 @@ else:
         a *= 1.1
         days += 1
     print(f"Days to goal: {days}")
+
+    # Альтернативное решение
+    from math import ceil, log
+    a = start
+
+    l = log(b / a, 1.1)
+    l = l if l >= 0 else 0
+    days = ceil(l) + 1
+    print(f"Days to goal (by log): {days}")
