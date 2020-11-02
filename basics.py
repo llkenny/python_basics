@@ -41,3 +41,25 @@ while i > 0:
     if max == 9:
         break
 print(f"Max digit is {max}")
+
+# 5
+# Запросите у пользователя значения выручки и издержек фирмы. Определите, с каким финансовым результатом работает фирма (прибыль — выручка больше издержек, или убыток — издержки больше выручки). Выведите соответствующее сообщение. Если фирма отработала с прибылью, вычислите рентабельность выручки (соотношение прибыли к выручке). Далее запросите численность сотрудников фирмы и определите прибыль фирмы в расчете на одного сотрудника.
+proceeds = float(input("Enter proceeds (positive float): "))
+outgo = float(input("Enter outgo (positive float): "))
+if proceeds < 0 or outgo < 0:
+    print("Bad input")
+else:
+    if proceeds == outgo:
+        print("Result: zero")
+    else:
+        negative_msg = "Result: loss"
+        if outgo > proceeds:
+            print(negative_msg)
+        else:
+            profit = proceeds - outgo
+            print(f"Result: profit = {profit}")
+            print(f"Profitability of proceeds: {profit / proceeds}") # proceeds не может быть 0, т.к. outgo >= 0, proceeds != outgo, proceeds > outgo 
+            count = int(input("Enter number of employees: "))
+            if count != 0:
+                print(f"Profit per employee: {profit / count}")
+        
