@@ -51,6 +51,19 @@ def exercise_3():
     print(seasons_list[number-1])
     print(seasons_dict[number])
 
+# Пользователь вводит строку из нескольких слов, разделённых пробелами.
+# Вывести каждое слово с новой строки.
+# Строки необходимо пронумеровать.
+# Если в слово длинное, выводить только первые 10 букв в слове.
+def exercise_4():
+    string = input("Enter string: ")
+    words = string.split(" ")
+    i = 0
+    while i < len(words):
+        print(f'{i}: {words[i][:10]}')
+        i += 1
+
 exercise_1()
 exercise_2()
 exercise_3()
+exercise_4()
