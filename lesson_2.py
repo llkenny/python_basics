@@ -77,8 +77,46 @@ def exercise_5():
 
     print(f'Index to insert: {i}\nNew list: {my_list}')
 
+# * Реализовать структуру данных «Товары».
+# Она должна представлять собой список кортежей.
+# Каждый кортеж хранит информацию об отдельном товаре.
+# В кортеже должно быть два элемента — номер товара и словарь с параметрами (характеристиками товара: название, цена, количество, единица измерения).
+# Структуру нужно сформировать программно, т.е. запрашивать все данные у пользователя.
+def exercise_6():
+    items = list()
+    index = 1
+
+    while True:
+        try:
+            title = input(f"Enter item name {exit}: ")
+            price = int(input(f"Enter price (int) {exit}: "))
+            quantity = int(input(f"Enter quantity (int) {exit}: "))
+            unit = input(f"Enter unit {exit}: ")
+        except EOFError:
+            print()
+            break
+        item = (index, {"название": title, "цена": price, "количество": quantity, "eд": unit})
+        items.append(item)
+        index += 1
+    
+    print(items)
+    names = set()
+    prices = set()
+    quantities = set()
+    units = set()
+
+    for item in items:
+        names.add(item[1]["название"])
+        prices.add(item[1]["цена"])
+        quantities.add(item[1]["количество"])
+        units.add(item[1]["eд"])
+
+    result = {"название": list(names), "цена": list(prices), "количество": list(quantities), "eд": list(units)}
+    print(result)
+
 exercise_1()
 exercise_2()
 exercise_3()
 exercise_4()
 exercise_5()
+exercise_6()
