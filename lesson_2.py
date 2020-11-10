@@ -63,7 +63,22 @@ def exercise_4():
         print(f'{i}: {words[i][:10]}')
         i += 1
 
+# Реализовать структуру «Рейтинг», представляющую собой не возрастающий набор натуральных чисел.
+# У пользователя необходимо запрашивать новый элемент рейтинга.
+# Если в рейтинге существуют элементы с одинаковыми значениями, то новый элемент с тем же значением должен разместиться после них.
+def exercise_5():
+    my_list = [7, 5, 3, 3, 2]
+    print(my_list)
+    new_value = int(input("Enter new value (int): "))
+    i = 0
+    while i < len(my_list) and my_list[i] >= new_value:
+        i += 1
+    my_list.insert(i, new_value)
+
+    print(f'Index to insert: {i}\nNew list: {my_list}')
+
 exercise_1()
 exercise_2()
 exercise_3()
 exercise_4()
+exercise_5()
