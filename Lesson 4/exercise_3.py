@@ -3,3 +3,6 @@
 # Подсказка: использовать функцию range() и генератор.
 
 print(list(x for x in range(20, 240) if x % 20 == 0 or x % 21 == 0))
+
+# Если до 240 включительно, то
+print(list(x for x in range(20, 241) if x % 20 == 0 or x % 21 == 0))
