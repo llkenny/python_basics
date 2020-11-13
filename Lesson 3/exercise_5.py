@@ -14,9 +14,9 @@ def string_to_sum(start = 0):
     
     if stop in values:
         index = values.index("exit")
-        return start + sum(list(map(int, values[:index])))
+        return start + sum(map(int, values[:index]))
     else:
-        new_sum = start + sum(list(map(int, values)))
+        new_sum = start + sum(map(int, values))
         print(f'Current sum: {new_sum}')
         return string_to_sum(new_sum)
 
