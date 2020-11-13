@@ -5,7 +5,7 @@ def div(x, y):
         return "Error: division by zero"
     return x / y
 
-x =  float(input("Enter x: "))
+x = float(input("Enter x: "))
 y = float(input("Enter y: "))
 
 print(div(x, y))
