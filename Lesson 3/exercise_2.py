@@ -3,11 +3,11 @@
 # Реализовать вывод данных о пользователе одной строкой.
 
 def user(**kwargs):
-    print(f'Name: {kwargs["name"]}, Surname: {kwargs["surname"]}, Date of Birth: {kwargs["dob"]}, City: {kwargs["city"]}, Email: {kwargs["email"]}, Phone: {kwargs["phone"]}')
+    return f'Name: {kwargs["name"]}, Surname: {kwargs["surname"]}, Date of Birth: {kwargs["dob"]}, City: {kwargs["city"]}, Email: {kwargs["email"]}, Phone: {kwargs["phone"]}'
 
 kwargs = {"name": "", "surname": "", "dob": "", "city": "", "email": "", "phone": ""}
 for key in kwargs.keys():
     value = input(f'Enter {key}: ')
     kwargs[key] = value
 
-user(**kwargs)
+print(user(**kwargs))
