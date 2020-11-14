@@ -2,7 +2,7 @@
 # Числа запрашивать у пользователя, предусмотреть обработку ситуации деления на ноль.
 def div(x, y):
     if y == 0:
-        return "Error: division by zero"
+        raise Exception("Division by zero")
     return x / y
 
 x = float(input("Enter x: "))
