@@ -9,4 +9,4 @@ if len(given_list) > 1:
     result_list = list(given_list[i] for i in range(1, len(given_list)) if given_list[i] > given_list[i-1])
     print(result_list)
 else:
-    print(list())
+    print(given_list)
