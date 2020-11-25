@@ -8,17 +8,25 @@
 from time import sleep
 from itertools import cycle
 
+class Light:
+    name: str
+    time: float
+
+    def __init__(self, name, time):
+        self.name = name
+        self.time = time
+
 class TrafficLight:
     __color = ""
-    __colors = {"Red": 7, "Yellow": 2, "Green": 3}
+    __lights = [Light("Red", 7), Light("Yellow", 2), Light("Green", 5)]
 
     def running(self):
-        for self.__color in cycle(self.__colors):
-            for _ in range(self.__colors[self.__color]):
-                sleep(1)
+        for light in cycle(self.__lights):
+            self.__color = light.name
+            for _ in range(light.time):
+                sleep(light.time)
                 yield self.__color
 
 
-trafficLight = TrafficLight()
-for color in trafficLight.running():
+for color in TrafficLight().running():
     print(color)
