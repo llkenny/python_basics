@@ -125,7 +125,7 @@ class TestCarsMethods(unittest.TestCase):
         self.speed_limit_test(WorkCar, 41, True)
 
 
-class TestPoliceCarMethods(unittest.TestCase):
+class TestPoliceCar(unittest.TestCase):
 
     def test_police_car_parameters(self):
         obj = PoliceCar(45)
