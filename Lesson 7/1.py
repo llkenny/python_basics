@@ -30,7 +30,9 @@ class Matrix:
             raise Exception(f'Matrix is empty or invalid')
 
     def __add__(self, other):
-        return Matrix(list(map(lambda r_pair: list(map(sum, zip(r_pair[0], r_pair[1]))), zip(self.data, other.data))))
+        if type(other) == Matrix:
+            return Matrix(list(map(lambda r_pair: list(map(sum, zip(r_pair[0], r_pair[1]))), zip(self.data, other.data))))
+        raise ValueError('Unsupported type')
 
 
 m1 = Matrix([[1, 1], [2, 2], [3, 3]])
