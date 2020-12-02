@@ -10,6 +10,10 @@
 # Для хранения данных о наименовании и количестве единиц оргтехники,
 # а также других данных, можно использовать любую подходящую структуру, например словарь.
 
+# 6. Продолжить работу над вторым заданием.
+# Реализуйте механизм валидации вводимых пользователем данных.
+# Например, для указания количества принтеров, отправленных на склад, нельзя использовать строковый тип данных.
+
 from abc import ABC, abstractmethod
 
 units = ['WH', 'BK', 'AD', 'MD']
@@ -42,6 +46,17 @@ class Warehouse():
 
     def __init__(self, size):
         self.size = size
+
+    def buy(self, item_type, vendor, count):
+        """Закупить технику
+
+        Args:
+            item_type: Тип требуемой техники
+            vendor: Производитель
+            count: Количество
+        """
+        for _ in range(count):
+            self.__items.append(item_type(vendor, units[0]))
 
     def put(self, item: OfficeEquipment):
         """Добавить технику на склад
@@ -204,3 +219,6 @@ s.scan(['Test'], print)
 
 c = Copier('Xerox', 2)
 c.copy(['Test copy 1', 'Test copy 2'])
+
+wh.buy(Printer, "Canon", 8)
+print(wh.report())
