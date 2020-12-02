@@ -47,6 +47,9 @@ class Warehouse():
     def __init__(self, size):
         self.size = size
 
+    def __str__(self):
+        return str(self.report())
+
     def buy(self, item_type, vendor, count):
         """Закупить технику
 
@@ -221,4 +224,4 @@ c = Copier('Xerox', 2)
 c.copy(['Test copy 1', 'Test copy 2'])
 
 wh.buy(Printer, "Canon", 8)
-print(wh.report())
+print(wh)
