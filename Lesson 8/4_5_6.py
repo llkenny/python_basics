@@ -45,6 +45,8 @@ class Warehouse():
     __items = list()
 
     def __init__(self, size):
+        if type(size) is not int:
+            raise WarehouseError('Size must be int')
         self.size = size
 
     def __str__(self):
@@ -57,7 +59,17 @@ class Warehouse():
             item_type: Тип требуемой техники
             vendor: Производитель
             count: Количество
+            
+        Raises:
+            WarehouseError: Ошибка склада
         """
+        if type(count) is not int:
+            raise WarehouseError('Count must be int')
+        if type(vendor) is not str:
+            raise WarehouseError('Vendor must be string')
+        if not issubclass(item_type, OfficeEquipment):
+            raise WarehouseError('Unknown office equipement')
+
         for _ in range(count):
             self.__items.append(item_type(vendor, units[0]))
 
@@ -72,6 +84,8 @@ class Warehouse():
         """
         if self.size - len(self.__items) <= 0:
             raise WarehouseError('Warehouse is full')
+        if not issubclass(type(item), OfficeEquipment):
+            raise WarehouseError('Unknown office equipement')
         item.unit = units[0]
         self.__items.append(item)
 
@@ -90,6 +104,8 @@ class Warehouse():
         """
         if unit not in units:
             raise WarehouseError('Wrong unit: ', unit)
+        if not issubclass(item_type, OfficeEquipment):
+            raise WarehouseError('Unknown office equipement')
         for item in self.__items:
             if type(item) is item_type:
                 self.__items.remove(item)
@@ -125,6 +141,8 @@ class Printer(OfficeEquipment):
     """Класс 'Принтер'
     """
     def __init__(self, title, cartridge_capacity):
+        if type(cartridge_capacity) is not int:
+            raise PrinterError('Cartridge capacity must be int')
         self.cartridge_capacity = cartridge_capacity
         super().__init__(title)
 
@@ -151,12 +169,22 @@ class Printer(OfficeEquipment):
 
         Args:
             cartridge_capacity: Емкость нового картриджа
+
+        Raises:
+            PrinterError: Ошибка принтера
         """
+        if type(cartridge_capacity) is not int:
+            raise PrinterError('Cartridge capacity must be int')
         self.cartridge_capacity = cartridge_capacity
 
 
+class ScannerError(Exception):
+    def __init__(self, *args):
+        self.text = args[0]
+
+
 class Scanner(OfficeEquipment):
-    """Класс 'Сканнер'
+    """Класс 'Сканер'
     """
     def scan(self, sheets, receiver):
         """Отсканировать листы
@@ -164,8 +192,13 @@ class Scanner(OfficeEquipment):
         Args:
             sheets: Список листов
             receiver: Получатель скана
+
+        Raises:
+            ScannerError: Ошибка сканера
         """
         for s in sheets:
+            if type(s) is not str:
+                raise ScannerError('Unable to scan page', s)
             print("Scanning...")
             receiver(s)
 
