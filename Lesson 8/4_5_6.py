@@ -71,7 +71,7 @@ class Warehouse():
             raise WarehouseError('Unknown office equipement')
 
         for _ in range(count):
-            self.__items.append(item_type(vendor, units[0]))
+            self.put(item_type(vendor))
 
     def put(self, item: OfficeEquipment):
         """Добавить технику на склад
@@ -140,8 +140,10 @@ class PrinterError(Exception):
 class Printer(OfficeEquipment):
     """Класс 'Принтер'
     """
-    def __init__(self, title, cartridge_capacity):
-        if type(cartridge_capacity) is not int:
+    def __init__(self, title, cartridge_capacity=None):
+        if cartridge_capacity is None:
+            self.cartridge_capacity = 0
+        elif type(cartridge_capacity) is not int:
             raise PrinterError('Cartridge capacity must be int')
         self.cartridge_capacity = cartridge_capacity
         super().__init__(title)
