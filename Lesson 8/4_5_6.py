@@ -94,7 +94,7 @@ class Warehouse():
 
         Args:
             item_type: Тип требуемой техники
-            unit: Подразделене - получатель
+            unit: Подразделение - получатель
 
         Raises:
             WarehouseError: Ошибка склада
