@@ -17,12 +17,12 @@ from abc import ABC, abstractproperty
 class Cloth(ABC):
 
     @abstractproperty
-    def fabricAmount(self):
+    def fabric_amount(self):
         pass
 
     @staticmethod
-    def fabricTotal(clothes: [Cloth]):
-        return sum([cloth.fabricAmount for cloth in clothes])
+    def fabric_total(clothes: [Cloth]):
+        return sum([cloth.fabric_amount for cloth in clothes])
 
 
 
@@ -31,7 +31,7 @@ class Coat(Cloth):
         self.size = size
 
     @property
-    def fabricAmount(self):
+    def fabric_amount(self):
         return self.size / 6.5 + 0.5
 
 
@@ -40,14 +40,14 @@ class Suit(Cloth):
         self.height = height
 
     @property
-    def fabricAmount(self):
+    def fabric_amount(self):
         return 2 * self.height + 0.3
 
 
 c = Coat(6.5)
 s = Suit(10)
-print(c.fabricAmount)
-print(s.fabricAmount)
+print(c.fabric_amount)
+print(s.fabric_amount)
 
-total = Cloth.fabricTotal([s, c])
+total = Cloth.fabric_total([s, c])
 print(total)
