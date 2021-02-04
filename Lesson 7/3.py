@@ -68,5 +68,5 @@ class Cell():
             if dm[1] > 0:
                 result += f'\n{"*" * dm[1]}'
             return result
-        except ZeroDivisionError:
-                raise Exception('Invalid data')
+        except Exception as err:
+            print("Ошибка:", err)
